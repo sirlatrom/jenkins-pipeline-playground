@@ -6,5 +6,5 @@ node {
   stage 'Test'
   sh './mvnw test'
   stage 'Package'
-  sh './mvnw package'
+  sh './mvnw -DskipTests package'
 }
