@@ -5,6 +5,8 @@ node {
   sh './mvnw clean'
   stage 'Test'
   sh './mvnw test'
+  junit 'target/surefire-reports/*.xml'
   stage 'Package'
   sh './mvnw -DskipTests package'
+  archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, onlyIfSuccessful: true
 }
